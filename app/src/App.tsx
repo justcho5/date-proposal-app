@@ -8,7 +8,8 @@ import Footer from "./components/Footer";
 function App() {
   const [x, setX] = useState(-1);
   const [y, setY] = useState(-1);
-  const [clicked, setClicked] = useState(false);
+  const [clickedYes, setClickedYes] = useState(false);
+  const [clickedNo, setClickedNo] = useState(false);
 
   const handleNoClick = () => {
     console.log("Click No");
@@ -29,15 +30,16 @@ function App() {
 
     setX(getRandomInt(vw));
     setY(getRandomInt(vh));
+    setClickedNo(true);
   };
 
   const handleYesClick = () => {
-    setClicked(true);
+    setClickedYes(true);
     console.log("Click Yes");
   };
   return (
     <div className="app">
-      {clicked ? (
+      {clickedYes ? (
         <div>Cool!</div>
       ) : (
         <div>
@@ -46,6 +48,7 @@ function App() {
           <div className="buttons">
             <Button text="Yes" handleClick={handleYesClick} x={-1} y={-1} />
             <Button text="No" handleClick={handleNoClick} x={x} y={y} />
+            {clickedNo ? <div className="placeholder"></div> : <div></div>}
           </div>
           <Footer />
         </div>

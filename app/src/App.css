@@ -15,3 +15,8 @@
   gap: 20px;
   justify-content: center;
 }
+
+.placeholder {
+  width: 70px;
+  height: 45px;
+}
